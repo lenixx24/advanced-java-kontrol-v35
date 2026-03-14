@@ -3,20 +3,24 @@ package ua.university;
 import java.util.Objects;
 
 class OrderItem {
-    private final String sku;
+    private final String productID;
     private final Money price;
     private final int quantity;
 
-    public OrderItem(String sku, Money price, int quantity) {
+    public OrderItem(String productID, Money price, int quantity) {
         if (quantity <= 0) {
             throw new IllegalArgumentException("Quantity must be > 0");
         }
-        this.sku = Objects.requireNonNull(sku, "sku");
+        this.productID = Objects.requireNonNull(productID, "sku");
         this.price = Objects.requireNonNull(price, "price");
         this.quantity = quantity;
     }
 
     public Money total() {
         return price.multiply(quantity);
+    }
+
+    public String productID() {
+        return productID;
     }
 }

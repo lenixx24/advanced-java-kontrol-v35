@@ -6,8 +6,8 @@ public class CardPayment implements PaymentMethod{
             return "Card";
         }
 
-        public void pay(int amount) throws IllegalArgumentException{
-            if(amount>40000) throw new IllegalArgumentException("Amount must be <= 40000");
-            System.out.println("Paying "+amount+" via "+name());
+        public void pay(Money amount) throws IllegalArgumentException{
+            if(amount.cents()>40000) throw new IllegalArgumentException("Amount must be <= 40000");
+            System.out.println("Paying "+amount.cents()+" via "+name());
         }
 }
