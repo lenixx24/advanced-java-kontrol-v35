@@ -16,7 +16,7 @@ public class OrderProcessor extends OrderProcessorTemplate{
             this.amount=new Money(amount);
         }
         catch(IllegalArgumentException e){
-            log.warn(e.getMessage());
+            throw new IllegalArgumentException(e);
         }
     }
 
